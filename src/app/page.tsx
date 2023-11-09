@@ -34,6 +34,7 @@ const getProducts = async (): Promise<GraphQLResponse> => {
                 width
               }
               handle
+              id
               priceRangeV2 {
                 minVariantPrice {
                   amount
@@ -65,7 +66,6 @@ const HomePage = async () => {
   
   const json = await getProducts();
 
-  console.log('json', json.data.products)
 
   return (
     <main className="container mx-auto">
@@ -73,6 +73,7 @@ const HomePage = async () => {
       <h2 className="font-bold text-2xl mb-3">Our Products:</h2>
       <ul className="grid grid-cols-12 gap-4 pb-12">
         {json.data.products.nodes.map((product) => {  
+        const prodId = product.id.split("/").pop();
           return (
             <li
               key={product.id}
@@ -110,7 +111,7 @@ const HomePage = async () => {
                 <p className="mt-2 mb-4">{product.description}</p>
   
                 <Link
-                  href={`/product/${product.handle}`}
+                  href={`/product/${prodId}`}
                   className="border border-blue-600 inline-block p-2 rounded-md text-blue-600 hover:bg-blue-600 hover:text-white ease-in-out duration-150"
                 >
                   View Product
