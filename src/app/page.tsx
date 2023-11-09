@@ -110,7 +110,7 @@ const HomePage = async () => {
                 <p className="mt-2 mb-4">{product.description}</p>
   
                 <Link
-                  href={`/product/'${product.handle}'`}
+                  href={`/product/${product.handle}`}
                   className="border border-blue-600 inline-block p-2 rounded-md text-blue-600 hover:bg-blue-600 hover:text-white ease-in-out duration-150"
                 >
                   View Product
