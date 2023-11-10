@@ -1,6 +1,7 @@
 import {ShopifyProduct, ShopifyExtension} from '../../../types/index';
 import {gql} from '../../../utls/gql'; 
-import {formatPrice} from '../../../utls/formatPrice'
+import {formatPrice} from '../../../utls/formatPrice';
+import Image from "next/image";
 
 
 type GraphQLResponse = {
